@@ -2,18 +2,17 @@ package com.kevinkan.easy;
 
 import java.util.stream.Stream;
 
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.MethodSource;
-
 import static org.junit.Assert.assertArrayEquals;
+import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
 /**
  * Unit tests for TwoSum class.
  */
 public class TwoSumTest {
 
-    private TwoSum twoSum = new TwoSum();
+    private final TwoSum twoSum = new TwoSum();
 
     private static Stream<Arguments> testData() {
         return Stream.of(
@@ -28,12 +27,12 @@ public class TwoSumTest {
     @ParameterizedTest
     @MethodSource("testData")
     public void testTwoSumHashMap(int[] nums, int target, int[] expected) {
-        assertArrayEquals(twoSum.twoSum_hashMap(nums, target), expected);
+        assertArrayEquals(expected, twoSum.twoSum_hashMap(nums, target));
     }
 
     @ParameterizedTest
     @MethodSource("testData")
     public void testTwoSumBruteForce(int[] nums, int target, int[] expected) {
-        assertArrayEquals(twoSum.twoSum_hashMap(nums, target), expected);
+        assertArrayEquals(expected, twoSum.twoSum_bruteForce(nums, target));
     }
 }
