@@ -52,7 +52,7 @@ public class ClimbingStairs {
         return climbStairsRecursiveHelper(n, memo);
     }
 
-    public int climbStairsRecursiveHelper(int n, Map<Integer, Integer> memo) {
+    private int climbStairsRecursiveHelper(int n, Map<Integer, Integer> memo) {
         // If not memoized, then call recursion to work your way from top down. 
         return (memo.containsKey(n))? memo.get(n) : climbStairsRecursiveHelper(n-1, memo) + climbStairsRecursiveHelper(n-2, memo);
     }

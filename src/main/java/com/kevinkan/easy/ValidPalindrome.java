@@ -40,7 +40,7 @@ public class ValidPalindrome {
     }
 
     // Manual Comparison is marginally faster than Character.isAlphanumeric()
-    public boolean isAlphanumeric(char c) {
+    private boolean isAlphanumeric(char c) {
         return  (c >= '0' && c <= '9') ||
                 (c >= 'A' && c <= 'Z') ||
                 (c >= 'a' && c <= 'z');
