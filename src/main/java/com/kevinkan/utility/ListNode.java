@@ -63,6 +63,16 @@ public class ListNode {
         return sb.toString();
     }
 
+    public int[] toArray() {
+        java.util.List<Integer> values = new java.util.ArrayList<>();
+        ListNode current = this;
+        while (current != null) {
+            values.add(current.val);
+            current = current.next;
+        }
+        return values.stream().mapToInt(i -> i).toArray();
+    }
+
     public static ListNode createCycleList(int[] values, int pos) {
         if (values.length == 0) return null;
         ListNode head = new ListNode(values[0]);
