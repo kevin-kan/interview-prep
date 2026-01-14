@@ -46,9 +46,11 @@ public class ValidAnagram {
 
         // HashMap to store letter counts;
         Map<Character, Integer> charCount = new HashMap<>();
+        // Add character counts for s
         for (int i = 0; i < s.length(); i++) {
             charCount.put(sChars[i], charCount.getOrDefault(sChars[i], 0) + 1);
         }
+        // Subtract character counts for t 
         for (int i = 0; i < t.length(); i++) {
             if (charCount.get(tChars[i]) == null || charCount.get(tChars[i]) == 0) {
                 return false;
