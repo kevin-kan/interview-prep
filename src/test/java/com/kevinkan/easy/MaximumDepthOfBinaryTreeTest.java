@@ -45,4 +45,10 @@ public class MaximumDepthOfBinaryTreeTest {
         assertEquals(expected, maximumDepthOfBinaryTree.maxDepth(root));
     }
 
+    @ParameterizedTest
+    @MethodSource("testData")
+    public void testMaxDepthIterative(TreeNode root, int expected) {
+        assertEquals(expected, maximumDepthOfBinaryTree.maxDepthIterative(root));
+    }
+
 }
