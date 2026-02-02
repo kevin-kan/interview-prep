@@ -43,7 +43,7 @@ public class MergeSortedArray {
     /**
      * Java Arrays.sort approach
      * Time Complexity: O((m + n) log(m + n)) due to the sorting step.
-     * Space Complexity: O(1) if we ignore the space required for sorting.
+     * Space Complexity: O(1) if we ignore the space required for sorting. O(log(m +n)) with QuickSort space
      */
     public void mergeWithSort(int[] nums1, int m, int[] nums2, int n) {
         // Copy elements from nums2 to nums1

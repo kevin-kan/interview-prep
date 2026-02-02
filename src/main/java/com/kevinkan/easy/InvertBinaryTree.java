@@ -1,5 +1,8 @@
 package com.kevinkan.easy;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 import com.kevinkan.utility.TreeNode;
 
 /**
@@ -41,7 +44,7 @@ public class InvertBinaryTree {
         if (root == null) return root;
 
         // Create a queue for BFS traversal and start it off with the root
-        java.util.Queue<TreeNode> queue = new java.util.LinkedList<>();
+        Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
 
         while (!queue.isEmpty()) {

@@ -15,7 +15,7 @@ public class KthLargestElementInAnArray {
     /**
      * Sorting Approach
      * Time Complexity: O(nlogn)
-     * Space Complexity: O(1) - sorted in place
+     * Space Complexity: O(logn) - space needed for Quicksort
      */
     public int findKthLargestSorting(int[] nums, int k) {
         Arrays.sort(nums);

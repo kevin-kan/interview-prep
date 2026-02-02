@@ -16,7 +16,7 @@ public class IsSubsequence {
      * Space Complexity: O(1) as we are using only a constant amount of extra space.
      */
     public boolean isSubsequence(String s, String t) {
-        // Quick Validation: length of s must be smaller than or equal to t be to a subsequence.
+        // Quick Validation: length of s must be smaller than or equal to t to be a subsequence.
         if (s.length() > t.length()) return false;
 
         // Edge Case: an empty string is always a subsequence.
