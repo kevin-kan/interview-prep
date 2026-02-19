@@ -8,6 +8,9 @@ import java.util.List;
 * The same number may be chosen from candidates an unlimited number of times. Two combinations are unique if the frequency of at least one of the chosen numbers is different.
 * The test cases are generated such that the number of unique combinations that sum up to target is less than 150 combinations for the given input.
 * 
+* In Combination Sum II, we are limited to 1 usage per number, and an added complexity of potential duplicate numbers in the list. 
+* Duplicate combinations can still not exist.
+* 
 * Constraints:
 * 1 <= candidates.length <= 30
 * 2 <= candidates[i] <= 40
@@ -23,6 +26,9 @@ public class CombinationSum {
      */
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
         List<List<Integer>> result = new ArrayList<>();
+        // If we were skipping duplicates for Combination Sum II:
+        // Arrays.sort(candidates);
+
         // Set up a result list and current combination list to track progress
         backtrack(candidates, target, 0, new ArrayList<>(), result);
         return result;
@@ -40,13 +46,13 @@ public class CombinationSum {
         }
         // Iterate through candidates starting from the current index
         for (int i = index; i < candidates.length; i++) {
-            // If we were skipping duplicates:
+            // If we were skipping duplicates for Combination Sum II:
             // if (i > index && candidates[i] == candidates[i - 1]) continue;
 
             // Include the candidate and continue the search with the updated target
             currentCombo.add(candidates[i]);
             
-            // If we were skipping duplicates:
+            // If we were skipping duplicates for Combination Sum II:   
             // backtrack(candidates, target - candidates[i], i + 1, currentCombo, result);
             backtrack(candidates, target - candidates[i], i, currentCombo, result); 
             
