@@ -19,31 +19,24 @@ public class MergeIntervals {
      * Space Complexity: O(n) in the worst case, when all intervals are non-overlapping.
      */
     public int[][] merge(int[][] intervals) {
-        // Sort the intervals by i1, then by i2 if i1 match
-        Arrays.sort(intervals, (i1, i2) -> {
-            if (i1[0] != i2[0]) {
-                return Integer.compare(i1[0], i2[0]);
-            } else {
-                return Integer.compare(i1[1], i2[1]);
-            }
-        });
-        List<int[]> merged = new ArrayList<>(); 
-        int[] prev = intervals[0];
-        // Iterate through the intervals
-        for (int i = 1; i < intervals.length; i++) {
-            // If there is an overlap (new one starts before the previous ends), then merge
-            if (intervals[i][0] <= prev[1]) {
-                prev[1] = Math.max(intervals[i][1], prev[1]);
-            }
-            // Otherwise add prev to output arr and update previous to current interval
-            else {
-                merged.add(prev);
-                prev = intervals[i];
-            }
+        List<int[]> mergedIntervals = new ArrayList<>();
+        // Start by sorting the intervals
+        Arrays.sort(intervals, (a,b) -> a[0] - b[0]);
+
+        // Add the first interval to the output
+        if (intervals.length > 0) {
+            mergedIntervals.add(intervals[0]);
         }
-        merged.add(prev);
 
-        return merged.toArray(new int[merged.size()][]);
+        // Iterate through the remainder, updating the previous interval if necessary.
+        for (int i = 1; i < intervals.length; i++) {
+            int[] prior = mergedIntervals.get(mergedIntervals.size() -1);
+            // If this new interval starts after the prior one ends, just add it.
+            if (intervals[i][0] > prior[1]) mergedIntervals.add(intervals[i]);
+            // Otherwise, update the end of the prior interval to the later of the two. 
+            else prior[1] = Math.max(prior[1], intervals[i][1]);
+        }
+
+        return mergedIntervals.toArray(new int[mergedIntervals.size()][2]);
     }
-
 }
