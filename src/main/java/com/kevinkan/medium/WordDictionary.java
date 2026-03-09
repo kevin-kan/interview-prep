@@ -1,5 +1,7 @@
 package com.kevinkan.medium;
 
+import com.kevinkan.utility.TrieNode;
+
 /**
 * Design a data structure that supports adding new words and searching for existing words.
 * Implement the WordDictionary class:
@@ -61,15 +63,5 @@ class WordDictionary {
             }
         }
         return current.isWord;
-    }
-}
-
-class TrieNode {
-    boolean isWord;
-    TrieNode[] children;
-
-    public TrieNode() {
-        this.isWord = false;
-        this.children = new TrieNode[26];
     }
 }

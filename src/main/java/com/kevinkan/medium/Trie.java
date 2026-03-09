@@ -1,5 +1,7 @@
 package com.kevinkan.medium;
 
+import com.kevinkan.utility.TrieNode;
+
 /**
 * A prefix tree (also known as a trie) is a tree data structure used to efficiently store and retrieve keys in a set of strings. 
 * Some applications of this data structure include auto-complete and spell checker systems.
@@ -54,18 +56,4 @@ public class Trie {
         return true;
     }
 
-}
-
-class TrieNode {
-    boolean isWord;
-    TrieNode[] children;
-
-    public TrieNode() {
-        this.isWord = false;
-        this.children = new TrieNode[26];
-    }
-    public TrieNode(boolean isWord) {
-        this.isWord = isWord;
-        this.children = new TrieNode[26];
-    }
 }
